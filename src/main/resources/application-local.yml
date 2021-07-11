@@ -1,0 +1,35 @@
+security.jwt.token.secret-key: my-secret-key
+spring:
+  datasource:
+    url: jdbc:postgresql://ec2-34-232-191-133.compute-1.amazonaws.com/d1q343dg4iutnc
+    username: fxfcwjsuqcddtm
+    password: a433ba4ee22f9b5c60413b0a412d8a576a9e726379d209e2b01420093db0b233
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 1093359169270-116eohrstdabjcbafhd143q44elr4i9f.apps.googleusercontent.com
+            clientSecret: NnPZphepJY6qwC_94okz1FId
+            redirectUri: "{baseUrl}/api/oauth2/callback/{registrationId}"
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: 121189305185277
+            clientSecret: 42ffe5aa7379e8326387e0fe16f34132
+            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+              - emails
+              - public_profile
+
+app:
+  oauth2:
+    authorizedRedirectUris:
+      - http://localhost:3000/oauth2/redirect
+      - http://localhost:3000/oauth/redirect
